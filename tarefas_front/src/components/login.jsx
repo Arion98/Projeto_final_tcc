@@ -38,8 +38,8 @@ const FormularioLogin = () => {
                 login(); // Chama o método login do AuthProvider
                 setSuccess(true);
                 setTimeout(() => {
-                    navigate('/agendamento'); // Redireciona para a página de agendamentos
-                }, 2000);
+                    navigate('/welcome'); // Redireciona para a página de agendamentos
+                }, 0);
             } else {
                 setError("Usuário ou senha inválidos!");
             }
@@ -60,7 +60,7 @@ const FormularioLogin = () => {
                     <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                         <form onSubmit={handleSubmit}>
                             <div className="form-outline mb-4">
-                                <label className="form-label" htmlFor="username">NOME DE USUÁRIO</label>
+                                <label className="form-label" htmlFor="username">USUÁRIO</label>
                                 <input type="text" id="username" className="form-control form-control-lg" value={email} onChange={(e) => setEmail(e.target.value)} />
                             </div>
                             <div className="form-outline mb-4">

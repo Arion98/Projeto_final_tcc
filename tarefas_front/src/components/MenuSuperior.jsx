@@ -5,19 +5,19 @@ import { api } from "../config_axios";
 
 const MenuSuperior = () => {
     const { funcionario, logout } = useAuth(); // Assuming useAuth provides funcionario data after login
-    const [nome, setNome] = useState('');
+    const [cliente_nome, setCliente_nome] = useState('');
     
     useEffect(() => {
-        const fetchFuncionarioNome = async () => {
+        const fetchclienteNome = async () => {
             try {
-                const response = await api.get(`/funcionario/`);
+                const response = await api.get(`/cliente`);
                 console.log('Response:', response); // Verifique a resposta da API
-                setNome(response.data.nome); // Verifique se o nome está sendo definido corretamente
+                setCliente_nome(response.data.cliente_nome); // Verifique se o nome está sendo definido corretamente
             } catch (error) {
                 console.error('Erro ao buscar nome do funcionário:', error);
             }
         };
-            fetchFuncionarioNome();
+            fetchclienteNome();
         
     }, []);
     
@@ -25,14 +25,14 @@ const MenuSuperior = () => {
     return (
         <nav className="navbar navbar-expand-sm bg-primary navbar-dark sticky-top">
             <div className="container">
-                <Link to="/welcome" className="navbar-brand">Página incial{nome}</Link>
+                <Link to="/welcome" className="navbar-brand">Página incial{cliente_nome}</Link>
                 
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <Link to="/automovel" className="nav-link">Cadastrar automóvel</Link>
+                        <Link to="/prestador" className="nav-link">Cadastrar Prestador</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/concessionaria" className="nav-link">Cadastrar concessionária</Link>
+                        <Link to="/agendamento" className="nav-link">Cadastrar agendamento</Link>
                     </li>                  
                     <li className="nav-item">
                         <Link to="/alter" className="nav-link">Manutenção Automoveis</Link>

@@ -106,18 +106,6 @@ const Cadastrar_prestador = () => {
             </div>
             <div className="row">
               <div className="col">
-                <label htmlFor="telefone">Telefone:</label>
-                <InputMask
-                  mask="(99) 99999-9999"
-                  type="text"
-                  className="form-control"
-                  id="telefone"
-                  required
-                  autoFocus
-                  {...register("telefone_numero")}
-                />
-              </div>
-              <div className="col">
                 <label htmlFor="prestadorEmail">Email:</label>
                 <input
                   type="email"

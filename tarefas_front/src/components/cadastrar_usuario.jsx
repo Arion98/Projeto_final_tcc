@@ -3,6 +3,7 @@ import { api } from "../config_axios";
 import { useState, useEffect } from "react";
 import InputMask from "react-input-mask";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Cadastrar_Usuario = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -38,7 +39,7 @@ const Cadastrar_Usuario = () => {
       reset();
       setSuccess(true);
       setTimeout(() => {
-        navigate("/"); 
+        navigate("/");
       }, 5000);
       setAviso('Usuário cadastrado com sucesso!');
     } catch (error) {
@@ -127,22 +128,25 @@ const Cadastrar_Usuario = () => {
               </select>
             </div>
           )}
-          <input
-            type="submit"
-            className="btn btn-primary mt-3"
-            value="Enviar"
-          />
-          <input
-            type="reset"
-            className="btn btn-danger mt-3 ms-3"
-            value="Limpar"
-          />
+          <div>
+            <input
+              type="submit"
+              className="btn btn-primary mt-3"
+              value="Enviar"
+            />
+            <Link to="/" className="nav-link">
+            <input
+              type="reset"
+              className="btn btn-danger mt-3 ms-3"
+              value="voltar"
+            />
+            </Link>
+          </div>
         </form>
         {aviso && (
           <div
-            className={`alert mt-3 ${
-              success ? "alert-success" : "alert-danger"
-            }`}
+            className={`alert mt-3 ${success ? "alert-success" : "alert-danger"
+              }`}
           >
             {aviso}
           </div>
